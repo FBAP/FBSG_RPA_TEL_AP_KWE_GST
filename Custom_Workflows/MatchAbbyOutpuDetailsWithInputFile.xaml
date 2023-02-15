@@ -1,0 +1,180 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="MatchAbbyOutpuDetailsWithInputFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dt_AbbyOutputResult" Type="InArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1104.8,3048</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>MatchAbbyOutpuDetailsWithInputFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="47">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Match Abby Output Details with Input file" DisplayName="MatchAbbyOutpuDetailsWithInputFile" sap:VirtualizedContainerService.HintSize="540,2983.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message || Match details Start Log" sap:VirtualizedContainerService.HintSize="477.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start: Match Abbay and Inout details workflow&quot;]" />
+    <If Condition="[in_dt_AbbyOutputResult.AsEnumerable.Where(Function(c) c(in_Config(&quot;Abby_InvoiceNoColumn&quot;).ToString).ToString.ToLower.Trim.Equals(in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString.ToLower.Trim)).ToArray().Length&gt;0]" DisplayName="If || Match Invoice Number" sap:VirtualizedContainerService.HintSize="477.6,613.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message || Invoice Number Matched Log" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Info: Invoice number matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || Invoice Number not matched Sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Invoice Number not matched Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Exception: Invoice number not matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+          <Throw DisplayName="Throw || Invoice Number" Exception="[New BusinessRuleException(in_Config(&quot;InvoiceNumberNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_dt_AbbyOutputResult.AsEnumerable.Where(Function(c) c(in_Config(&quot;Abby_InvoiceNoColumn&quot;).ToString).ToString.ToLower.Trim.Equals(in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString.ToLower.Trim))(0).item(in_Config(&quot;Abby_HWAB_NoColumn&quot;).ToString).ToString.Trim.Equals(in_TransactionItem.Item(in_Config(&quot;DescriptionColumn&quot;).ToString).ToString.Trim)]" DisplayName="If || HAWB Number Matched" sap:VirtualizedContainerService.HintSize="477.6,613.6" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message || HAWB Number matched Log" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Info: HAWB number matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || HAWB number not matched Sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || HAWB Number not matched Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Exception: HAWB number not matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+          <Throw DisplayName="Throw || HAWB not present" Exception="[New BusinessRuleException(in_Config(&quot;HAWBNumberNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_dt_AbbyOutputResult.AsEnumerable.Where(Function(c) c(in_Config(&quot;Abby_InvoiceNoColumn&quot;).ToString).ToString.ToLower.Trim.Equals(in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString.ToLower.Trim))(0).item(in_Config(&quot;Abby_TotalAmountColumn&quot;).ToString).ToString.Trim.Equals(in_TransactionItem.Item(in_Config(&quot;InvoiceAmountColumn&quot;).ToString).ToString.Trim)]" DisplayName="If || Invoice Amount matched or not" sap:VirtualizedContainerService.HintSize="477.6,613.6" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message || Invoice Amount Matched Log" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Info: Total Amount matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Invoice Amount not Matched Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Exception: Total Amount not matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+          <Throw DisplayName="Throw || Total Amount not present" Exception="[New BusinessRuleException(in_Config(&quot;InvoiceAmountNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_3" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_dt_AbbyOutputResult.AsEnumerable().Where(Function(x) x(in_Config(&quot;Abby_InvoiceNoColumn&quot;).ToString.Trim).Equals(in_TransactionItem(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString.Trim) AndAlso CDate(x(in_Config(&quot;Abby_InvoiceDateColumn&quot;).ToString.Trim)).ToString(&quot;dd-MM-yyyy&quot;).Equals(CDate(in_TransactionItem(in_Config(&quot;InvoiceDateColumn&quot;).ToString.Trim).ToString).ToString(&quot;dd-MM-yyyy&quot;))).ToArray().Length&gt;0]" DisplayName="If || Invoice Date not matched" sap:VirtualizedContainerService.HintSize="477.6,613.6" sap2010:WorkflowViewState.IdRef="If_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Message || Invocie Date Matched" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Info: Invoice Date matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || Invoice Date not matched Sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Invocie Date not Matched" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Info: Invoice Date not matched for this invoice number: &quot;+in_TransactionItem.Item(in_Config(&quot;InvoiceNumberColumn&quot;).ToString).ToString]" />
+          <Throw DisplayName="Throw || Invoice Date not matched" Exception="[New BusinessRuleException(in_Config(&quot;InvoiceDateNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_4" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message || Match details complete Log" sap:VirtualizedContainerService.HintSize="477.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Complete: Match Abbay and Inout details workflow&quot;]" />
+  </Sequence>
+</Activity>

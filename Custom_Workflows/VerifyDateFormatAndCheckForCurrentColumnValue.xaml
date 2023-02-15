@@ -1,0 +1,165 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="VerifyDateFormatAndCheckForCurrentColumnValue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="This variable can be used in case transactions are stored in a DataTable (for example, after being retrieved from a spreadsheet)." Name="io_dt_TransactionData" Type="InOutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_InvoiceReportFileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_TodaysDateFolder" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:VerifyDateFormatAndCheckForCurrentColumnValue.in_InvoiceReportFileName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:VerifyDateFormatAndCheckForCurrentColumnValue.in_InvoiceReportFileName>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>748.8,2160</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>VerifyDateFormatAndCheckForCurrentColumnValue_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="94">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Change the date format of Invoice Date and Copy paste it in Exchange Rate Column" DisplayName="VerifyDateFormatAndCheckForCurrentColumnValue" sap:VirtualizedContainerService.HintSize="636,2095.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message || Verify Date and Current value column start log" sap:VirtualizedContainerService.HintSize="573.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start: Verify Date and Current Column Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message || Invoice Date" sap:VirtualizedContainerService.HintSize="573.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Info: Invoice date is &quot;+in_TransactionItem(in_Config(&quot;InvoiceDateColumn&quot;).ToString.Trim).ToString.Trim]" />
+    <ui:LogMessage DisplayName="Log Message || Invoice Date Format change Log" sap:VirtualizedContainerService.HintSize="573.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Info: Invoice Date after changing format is &quot;+CDate(in_TransactionItem(in_Config(&quot;InvoiceDateColumn&quot;).ToString.Trim).ToString.Trim).ToString(&quot;dd-MMM-yy&quot;)]" />
+    <Assign DisplayName="Assign || change date format to dd-MMM-yy" sap:VirtualizedContainerService.HintSize="573.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[io_dt_TransactionData(in_TransactionNumber-1)(in_Config("InvoiceDateColumn").ToString.Trim)]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[CDate(in_TransactionItem(in_Config("InvoiceDateColumn").ToString.Trim).ToString.Trim).ToString("dd-MMM-yy")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteCell Cell="[Chr(in_TransactionItem.Table.Columns.IndexOf(in_Config(&quot;InvoiceDateColumn&quot;).ToString)+65)+(in_TransactionNumber+1).ToString]" DisplayName="Write Cell Workbook || Invoice Date Column" sap:VirtualizedContainerService.HintSize="573.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[in_Config(&quot;SheetName_ACC&quot;).ToString]" Text="[CDate(in_TransactionItem(in_Config(&quot;InvoiceDateColumn&quot;).ToString.Trim).ToString.Trim).ToString(&quot;dd-MMM-yy&quot;)]" WorkbookPath="[in_TodaysDateFolder+&quot;\&quot;+in_InvoiceReportFileName]" />
+    <Assign DisplayName="Assign || Copy Paste the Invoice Date in Exchange Rate Column" sap:VirtualizedContainerService.HintSize="573.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[io_dt_TransactionData(in_TransactionNumber-1)(in_Config("ExchangeRateDateColumn").ToString.Trim)]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[CDate(in_TransactionItem(in_Config("InvoiceDateColumn").ToString.Trim).ToString.Trim).ToString("dd-MMM-yy")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteCell Cell="[Chr(in_TransactionItem.Table.Columns.IndexOf(in_Config(&quot;ExchangeRateColumn&quot;).ToString)+65)+(in_TransactionNumber+1).ToString]" DisplayName="Write Cell Workbook || Exchange Rate Column" sap:VirtualizedContainerService.HintSize="573.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[in_Config(&quot;SheetName_ACC&quot;).ToString]" Text="[CDate(in_TransactionItem(in_Config(&quot;InvoiceDateColumn&quot;).ToString.Trim).ToString.Trim).ToString(&quot;dd-MMM-yy&quot;)]" WorkbookPath="[in_TodaysDateFolder+&quot;\&quot;+in_InvoiceReportFileName]" />
+    <If Condition="[in_TransactionItem(in_Config(&quot;CurrentColumn&quot;).ToString.Trim).Equals(in_Config(&quot;SGDValue&quot;).ToString.Trim) = true]" DisplayName="If || Check if Curr Column contains SGD or not" sap:VirtualizedContainerService.HintSize="573.6,865.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Sequence || SGD value present Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || SGD Value log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Info: Value for Curr Column is SGD&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || SGD Value not present Sequence" sap:VirtualizedContainerService.HintSize="496,482.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Curr Column Blank so Add SGD in it" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Info: Value for Curr Column is not  SGD. So add SGD for current transaction.&quot;]" />
+          <Assign DisplayName="Assign || Add SGD for blank value values" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Object">[io_dt_TransactionData(in_TransactionNumber-1)(in_Config("CurrentColumn").ToString.Trim)]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Object">[in_Config("SGDValue").ToString.Trim]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:WriteCell Cell="[Chr(in_TransactionItem.Table.Columns.IndexOf(in_Config(&quot;CurrentColumn&quot;).ToString)+65)+(in_TransactionNumber+1).ToString]" DisplayName="Write Cell Workbook || Curr Column" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[in_Config(&quot;SheetName_ACC&quot;).ToString]" Text="[in_Config(&quot;SGDValue&quot;).ToString.Trim]" WorkbookPath="[in_TodaysDateFolder+&quot;\&quot;+in_InvoiceReportFileName]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message || Verify Date and Curr column Complete log" sap:VirtualizedContainerService.HintSize="573.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Completed: Verify Date and Current Column Workflow&quot;]" />
+  </Sequence>
+</Activity>
