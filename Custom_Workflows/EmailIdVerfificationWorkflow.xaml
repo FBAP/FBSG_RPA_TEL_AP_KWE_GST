@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,2409.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>908.6666666666666,1680.6666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EmailIdVerfificationWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -83,7 +83,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Check if the Mail Ids passed in config file is valid or not" DisplayName="EmailIdVerfificationWorkflow" sap:VirtualizedContainerService.HintSize="777.6,2344.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Check if the Mail Ids passed in config file is valid or not" DisplayName="EmailIdVerfificationWorkflow" sap:VirtualizedContainerService.HintSize="918.6666666666666,1616" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="ArrEmailIds" />
     </Sequence.Variables>
@@ -93,8 +93,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message || Email Id Verification Start" sap:VirtualizedContainerService.HintSize="715.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start: Email Id verification Workflow&quot;]" />
-    <Assign DisplayName="Assign || Array of Email Ids to verify" sap:VirtualizedContainerService.HintSize="715.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message || Email Id Verification Start" sap:VirtualizedContainerService.HintSize="876.6666666666666,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start: Email Id verification Workflow&quot;]" />
+    <Assign DisplayName="Assign || Array of Email Ids to verify" sap:VirtualizedContainerService.HintSize="876.6666666666666,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[ArrEmailIds]</OutArgument>
       </Assign.To>
@@ -102,65 +102,71 @@
         <InArgument x:TypeArguments="s:String[]">[Split(in_Config("EmailIdsVerificationKey").ToString,",")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each || Loop over Array of Email Ids" sap:VirtualizedContainerService.HintSize="715.2,1814.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ArrEmailIds]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each || Loop over Array of Email Ids" sap:VirtualizedContainerService.HintSize="876.6666666666666,1122" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ArrEmailIds]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="EmailIdItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body || Loop for Mial Id Verification" sap:VirtualizedContainerService.HintSize="680,1688.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body || Loop for Mial Id Verification" sap:VirtualizedContainerService.HintSize="840,994" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="IsEmailIdIsValid" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[in_Config(EmailIdItem).ToString.Trim.Equals(&quot;&quot;)]" DisplayName="If || Check if Email Id is present or not in Config File" sap:VirtualizedContainerService.HintSize="617.6,1576.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[in_Config(EmailIdItem).ToString.Trim.Equals(&quot;&quot;)]" DisplayName="If || Check if Email Id is present or not in Config File" sap:VirtualizedContainerService.HintSize="798,449.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Sequence || Mail Id Not exists Sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Sequence || Mail Id Not exists Sequence" sap:VirtualizedContainerService.HintSize="376,248.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message || Email Id not present Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Exception: Config file does not contains &quot;+EmailIdItem+&quot; email Id value&quot;]" />
-                  <Throw DisplayName="Throw || No value for Key" Exception="[New BusinessRuleException(in_Config(&quot;EmailValueNotPresent&quot;).ToString.Trim+&quot; &quot;+EmailIdItem)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  <ui:LogMessage DisplayName="Log Message || Email Id not present Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Exception: Config file does not contains &quot;+EmailIdItem+&quot; email Id value&quot;]" />
+                  <Throw DisplayName="Throw || No value for Key" Exception="[New BusinessRuleException(in_Config(&quot;EmailValueNotPresent&quot;).ToString.Trim+&quot; &quot;+EmailIdItem)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Sequence || Mail Id Present Sequence" sap:VirtualizedContainerService.HintSize="540,1063.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Boolean" Name="IsEmailIdIsValid" />
-                  </Sequence.Variables>
+                <Sequence DisplayName="Sequence || Mail Id Present Sequence" sap:VirtualizedContainerService.HintSize="376,285.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message || Email Present Log" sap:VirtualizedContainerService.HintSize="477.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Info: Config file contains email Id for &quot;+EmailIdItem+&quot; Key&quot;]" />
-                  <ui:IsMatch DisplayName="Is Match || Check if Email Id is Valid or not" sap:VirtualizedContainerService.HintSize="477.6,60" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[in_Config(EmailIdItem).ToString.Trim]" IsBuilderTabModified="False" Pattern="(\w*.)(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})" RegexOption="IgnoreCase, Compiled" Result="[IsEmailIdIsValid]" />
-                  <If Condition="[IsEmailIdIsValid]" DisplayName="If || Check if Email Id is valid or not" sap:VirtualizedContainerService.HintSize="477.6,718.4" sap2010:WorkflowViewState.IdRef="If_2">
-                    <If.Then>
-                      <Sequence DisplayName="Sequence || Valid Mail Id Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message || Email is Valid Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Info: Email Id is valid for key &quot;+EmailIdItem]" />
-                      </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence DisplayName="Sequence || Invalid Mail Id sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message || Email Id is Invalid Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Exception: Email Id is not valid for key &quot;+EmailIdItem]" />
-                        <Throw DisplayName="Throw || Invalid Email Id" Exception="[New BusinessRuleException(in_Config(&quot;InvalidMailId&quot;).ToString.Trim+&quot; &quot;+EmailIdItem)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                      </Sequence>
-                    </If.Else>
-                  </If>
+                  <ui:LogMessage DisplayName="Log Message || Email Present Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Info: Config file contains email Id for &quot;+EmailIdItem+&quot; Key&quot;]" />
+                  <ui:IsMatch DisplayName="Is Match || Check if Email Id is Valid or not" sap:VirtualizedContainerService.HintSize="334,58.666666666666664" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[in_Config(EmailIdItem).ToString.Trim]" IsBuilderTabModified="False" Pattern="(\w*.)(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})" RegexOption="IgnoreCase, Compiled" Result="[IsEmailIdIsValid]" />
+                </Sequence>
+              </If.Else>
+            </If>
+            <If Condition="[IsEmailIdIsValid]" DisplayName="If || Check if Email Id is valid or not" sap:VirtualizedContainerService.HintSize="798,412.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Sequence || Valid Mail Id Sequence" sap:VirtualizedContainerService.HintSize="376,186.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message || Email is Valid Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Info: Email Id is valid for key &quot;+EmailIdItem]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Sequence || Invalid Mail Id sequence" sap:VirtualizedContainerService.HintSize="376,248.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message || Email Id is Invalid Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Exception: Email Id is not valid for key &quot;+EmailIdItem]" />
+                  <Throw DisplayName="Throw || Invalid Email Id" Exception="[New BusinessRuleException(in_Config(&quot;InvalidMailId&quot;).ToString.Trim+&quot; &quot;+EmailIdItem)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Else>
             </If>
@@ -168,6 +174,6 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message || Email id Verifcation Complete log" sap:VirtualizedContainerService.HintSize="715.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Completed: Email Id verification Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message || Email id Verifcation Complete log" sap:VirtualizedContainerService.HintSize="876.6666666666666,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Completed: Email Id verification Workflow&quot;]" />
   </Sequence>
 </Activity>

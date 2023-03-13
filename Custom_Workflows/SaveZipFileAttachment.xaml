@@ -11,7 +11,7 @@
   <this:SaveZipFileAttachment.in_DateSuffixes>
     <InArgument x:TypeArguments="s:String[]" />
   </this:SaveZipFileAttachment.in_DateSuffixes>
-  <sap:VirtualizedContainerService.HintSize>1104.8,3928.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830,3362</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -120,10 +120,9 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Save zip attachments and extract the files. retry for 3 times if zip file is not saved properly." DisplayName="Sequence || Save zip file and extract zip file" sap:VirtualizedContainerService.HintSize="776.8,3864" sap2010:WorkflowViewState.IdRef="Sequence_30">
+  <Sequence sap2010:Annotation.AnnotationText="Save zip attachments and extract the files. retry for 3 times if zip file is not saved properly." DisplayName="Sequence || Save zip file and extract zip file" sap:VirtualizedContainerService.HintSize="840,3297.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_30">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="IsZipFileDownloaded" />
-      <Variable x:TypeArguments="x:String" Name="AttachmentDateFormat" />
       <Variable x:TypeArguments="x:String" Name="ZipAttachmentName" />
       <Variable x:TypeArguments="x:Boolean" Name="IsZipAttachmentAlreadyExists" />
     </Sequence.Variables>
@@ -133,16 +132,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message || Zip File attachment Workflow StartLog" sap:VirtualizedContainerService.HintSize="714.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Start: Save Zip File Attachment Workflow&quot;]" />
-    <Assign DisplayName="Assign || Attachment Date Format" sap:VirtualizedContainerService.HintSize="714.4,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[AttachmentDateFormat]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[Now.AddDays(-13).ToString("d"""+in_DateSuffixes(Convert.ToInt32(Now.AddDays(-13).ToString("dd"))-1)+""" MMM")+" - "+Now.AddDays(-5).ToString("d"""+in_DateSuffixes(Convert.ToInt32(Now.AddDays(-5).ToString("dd"))-1)+""" MMM yyyy")]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign DisplayName="Assign || Zip File Download False Flag Variable" sap:VirtualizedContainerService.HintSize="714.4,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:LogMessage DisplayName="Log Message || Zip File attachment Workflow StartLog" sap:VirtualizedContainerService.HintSize="798,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Start: Save Zip File Attachment Workflow&quot;]" />
+    <Assign DisplayName="Assign || Zip File Download False Flag Variable" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[IsZipFileDownloaded]</OutArgument>
       </Assign.To>
@@ -150,9 +141,9 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[in_mail.Attachments.Where(Function(Attachment) Attachment.Name.Contains(in_Config(&quot;ZipFileName&quot;).ToString.Trim+&quot; &quot;+AttachmentDateFormat)).Count&gt;0]" DisplayName="If || Check if Attchement name matches or not" sap:VirtualizedContainerService.HintSize="714.4,961.6" sap2010:WorkflowViewState.IdRef="If_12">
+    <If Condition="[in_mail.Attachments.Where(Function(Attachment) Attachment.Name.Contains(in_Config(&quot;ZipFileName&quot;).ToString.Trim)).Count&gt;0]" DisplayName="If || Check if Attchement name matches or not" sap:VirtualizedContainerService.HintSize="798,554.6666666666666" sap2010:WorkflowViewState.IdRef="If_12">
       <If.Then>
-        <Sequence DisplayName="Sequence || Attachmnet na,e matched Sequence" sap:VirtualizedContainerService.HintSize="496,448" sap2010:WorkflowViewState.IdRef="Sequence_36">
+        <Sequence DisplayName="Sequence || Attachmnet na,e matched Sequence" sap:VirtualizedContainerService.HintSize="376,390.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
           <Sequence.Variables>
             <Variable x:TypeArguments="snm:Attachment" Name="MailAttachmentName" />
           </Sequence.Variables>
@@ -161,16 +152,16 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || Zip File name matches log" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Info: Zip Attachment name matches&quot;]" />
-          <Assign DisplayName="Assign || Zip Attachment Name in Attachment Format" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <ui:LogMessage DisplayName="Log Message || Zip File name matches log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Info: Zip Attachment name matches&quot;]" />
+          <Assign DisplayName="Assign || Zip Attachment Name in Attachment Format" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="snm:Attachment">[MailAttachmentName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="snm:Attachment">[in_mail.Attachments.Where(Function(Attachment) Attachment.Name.Contains(in_Config("ZipFileName").ToString.Trim+" "+AttachmentDateFormat)).First]</InArgument>
+              <InArgument x:TypeArguments="snm:Attachment">[in_mail.Attachments.Where(Function(Attachment) Attachment.Name.Contains(in_Config("ZipFileName").ToString.Trim)).First]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign || Zip Attachment Name" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign DisplayName="Assign || Zip Attachment Name" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[ZipAttachmentName]</OutArgument>
             </Assign.To>
@@ -181,18 +172,18 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Sequence || Attachment Name did not match sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
+        <Sequence DisplayName="Sequence || Attachment Name did not match sequence" sap:VirtualizedContainerService.HintSize="376,248.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_37">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || Zip Attachment name not matched log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Exception: Zip Attachment name did not match.&quot;]" />
-          <Throw DisplayName="Throw || Attachment Name not Matched" Exception="[New BusinessRuleException(in_Config(&quot;ZipAttachmentNameNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          <ui:LogMessage DisplayName="Log Message || Zip Attachment name not matched log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Exception: Zip Attachment name did not match.&quot;]" />
+          <Throw DisplayName="Throw || Attachment Name not Matched" Exception="[New BusinessRuleException(in_Config(&quot;ZipAttachmentNameNotMatched&quot;).ToString.Trim)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
         </Sequence>
       </If.Else>
     </If>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Check if Zip file is already present or not" Exists="[IsZipAttachmentAlreadyExists]" sap:VirtualizedContainerService.HintSize="714.4,90.4" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_TodaysDateFolder+&quot;\&quot;+ZipAttachmentName]" PathType="File" />
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Check if Zip file is already present or not" Exists="[IsZipAttachmentAlreadyExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_TodaysDateFolder+&quot;\&quot;+ZipAttachmentName]" PathType="File" />
     <If Condition="[IsZipAttachmentAlreadyExists]" DisplayName="If || Check if Zip attachment already exists or not" sap:VirtualizedContainerService.HintSize="714.4,718.4" sap2010:WorkflowViewState.IdRef="If_13">
       <If.Then>
         <Sequence DisplayName="Sequence || Zip attachment already present Sequence" sap:VirtualizedContainerService.HintSize="400,335.2" sap2010:WorkflowViewState.IdRef="Sequence_38">

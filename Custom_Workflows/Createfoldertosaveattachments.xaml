@@ -6,7 +6,7 @@
   <this:Createfoldertosaveattachments.in_Config>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
   </this:Createfoldertosaveattachments.in_Config>
-  <sap:VirtualizedContainerService.HintSize>1410.4,4829.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830,4670.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -108,7 +108,7 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Create Folder required for Saving Attachments" DisplayName="Sequence || Create folder to save attachments" sap:VirtualizedContainerService.HintSize="540,4764.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Create Folder required for Saving Attachments" DisplayName="Sequence || Create folder to save attachments" sap:VirtualizedContainerService.HintSize="840,4606" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SharedFolderPath" />
       <Variable x:TypeArguments="x:Boolean" Name="IsGSTFolderExists" />
@@ -126,8 +126,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message || Create Folder Start Workflow" sap:VirtualizedContainerService.HintSize="477.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Start: Create Folder Workflow&quot;]" />
-    <Assign DisplayName="Assign || Shared folder path" sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message || Create Folder Start Workflow" sap:VirtualizedContainerService.HintSize="798,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Start: Create Folder Workflow&quot;]" />
+    <Assign DisplayName="Assign || Shared folder path" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[SharedFolderPath]</OutArgument>
       </Assign.To>
@@ -135,7 +135,7 @@
         <InArgument x:TypeArguments="x:String">[in_Config("SharedFolderPath").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign || AP KWE Folder" sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign || AP KWE Folder" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[APKWEFolder]</OutArgument>
       </Assign.To>
@@ -143,30 +143,30 @@
         <InArgument x:TypeArguments="x:String">[Path.Combine(SharedFolderPath,in_Config("ACCKWEInvoiceFolder").ToString.Trim)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || AP KWE Folder Path" Exists="[IsAPKWEFolder]" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[APKWEFolder]" PathType="Folder" />
-    <If Condition="[IsAPKWEFolder]" DisplayName="If || Check if AP KWE Folder exists or not" sap:VirtualizedContainerService.HintSize="477.6,576" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || AP KWE Folder Path" Exists="[IsAPKWEFolder]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[APKWEFolder]" PathType="Folder" />
+    <If Condition="[IsAPKWEFolder]" DisplayName="If || Check if AP KWE Folder exists or not" sap:VirtualizedContainerService.HintSize="798,350.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
-        <Sequence DisplayName="Sequence || AP KWE Folder Present Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Sequence || AP KWE Folder Present Sequence" sap:VirtualizedContainerService.HintSize="376,186.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || AP KWE Folder Exists log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Info: AP KWE Invoice Folder exits&quot;]" />
+          <ui:LogMessage DisplayName="Log Message || AP KWE Folder Exists log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Info: AP KWE Invoice Folder exits&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Sequence || AP KWE Create Folder Sequence" sap:VirtualizedContainerService.HintSize="400,192.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <Sequence DisplayName="Sequence || AP KWE Create Folder Sequence" sap:VirtualizedContainerService.HintSize="376,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_17">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || AP KWE Folder" sap:VirtualizedContainerService.HintSize="337.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[APKWEFolder]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || AP KWE Folder" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[APKWEFolder]" />
         </Sequence>
       </If.Else>
     </If>
-    <Assign DisplayName="Assign || Year Folder (yyyy) Path" sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Assign || Year Folder (yyyy) Path" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[YearFolder]</OutArgument>
       </Assign.To>
@@ -174,8 +174,8 @@
         <InArgument x:TypeArguments="x:String">[Path.Combine(APKWEFolder,Now.ToString("yyyy"))]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Year Folder" Exists="[IsYearFolderExists]" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[YearFolder]" PathType="Folder" />
-    <If Condition="[IsYearFolderExists]" DisplayName="If || Check if Year Folder Exists" sap:VirtualizedContainerService.HintSize="477.6,483.2" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Year Folder" Exists="[IsYearFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[YearFolder]" PathType="Folder" />
+    <If Condition="[IsYearFolderExists]" DisplayName="If || Check if Year Folder Exists" sap:VirtualizedContainerService.HintSize="798,350.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -183,17 +183,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Sequence || Year Folder Present Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Sequence || Year Folder Present Sequence" sap:VirtualizedContainerService.HintSize="376,186.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || Year Folder Exist Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Info: Year Folder Exists&quot;]" />
+          <ui:LogMessage DisplayName="Log Message || Year Folder Exist Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Info: Year Folder Exists&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Date Folder ( YYYY-MM KWE GST)" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[YearFolder]">
+        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Date Folder ( YYYY-MM KWE GST)" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[YearFolder]">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,7 +203,7 @@
         </ui:CreateDirectory>
       </If.Else>
     </If>
-    <Assign DisplayName="Assign || GST Folder Path" sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign || GST Folder Path" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[GSTFolder]</OutArgument>
       </Assign.To>
@@ -211,8 +211,8 @@
         <InArgument x:TypeArguments="x:String">[Path.Combine(YearFolder,in_Config("GSTFolder").ToString.Trim)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || GST Folder" Exists="[ISGSTFolderExists]" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[GSTFolder]" PathType="Folder" />
-    <If Condition="[ISGSTFolderExists]" DisplayName="If || Check if GST Folder Exists or not" sap:VirtualizedContainerService.HintSize="477.6,576" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || GST Folder" Exists="[ISGSTFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[GSTFolder]" PathType="Folder" />
+    <If Condition="[ISGSTFolderExists]" DisplayName="If || Check if GST Folder Exists or not" sap:VirtualizedContainerService.HintSize="798,350.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -220,27 +220,27 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Sequence || GST Folder Present Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Sequence || GST Folder Present Sequence" sap:VirtualizedContainerService.HintSize="376,186.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || GST Folder Exist Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Info: GST Folder Exists&quot;]" />
+          <ui:LogMessage DisplayName="Log Message || GST Folder Exist Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Info: GST Folder Exists&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Sequence || GST Folder Create Sequence" sap:VirtualizedContainerService.HintSize="400,192.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Sequence || GST Folder Create Sequence" sap:VirtualizedContainerService.HintSize="376,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || GST Folder" sap:VirtualizedContainerService.HintSize="337.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[GSTFolder]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || GST Folder" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[GSTFolder]" />
         </Sequence>
       </If.Else>
     </If>
-    <Assign DisplayName="Assign || Todays Date Folder Path" sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Assign || Todays Date Folder Path" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[io_TodaysDateFolder]</OutArgument>
       </Assign.To>
@@ -248,26 +248,26 @@
         <InArgument x:TypeArguments="x:String">[Path.Combine(GSTFolder,Now.ToString(in_Config("TodaysDateFormat").ToString.Trim))]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Todays Date Folder" Exists="[IsTodaysDateFolderExists]" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[io_TodaysDateFolder]" PathType="Folder" />
-    <If Condition="[IsTodaysDateFolderExists]" DisplayName="If || Check if Todays Date Folder" sap:VirtualizedContainerService.HintSize="477.6,604" sap2010:WorkflowViewState.IdRef="If_5">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Todays Date Folder" Exists="[IsTodaysDateFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[io_TodaysDateFolder]" PathType="Folder" />
+    <If Condition="[IsTodaysDateFolderExists]" DisplayName="If || Check if Todays Date Folder" sap:VirtualizedContainerService.HintSize="798,471.3333333333333" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
-        <Sequence DisplayName="Sequence || Todays Date Folder Present Sequence " sap:VirtualizedContainerService.HintSize="400,325.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+        <Sequence DisplayName="Sequence || Todays Date Folder Present Sequence " sap:VirtualizedContainerService.HintSize="376,307.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || Todays Folder Exist Log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Info: Todays Date Folder exists&quot;]" />
-          <ui:DeleteFolderX DisplayName="Delete Folder || Todays Folder" sap:VirtualizedContainerService.HintSize="337.6,80.8" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[io_TodaysDateFolder]" Recursive="True" />
+          <ui:LogMessage DisplayName="Log Message || Todays Folder Exist Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Info: Todays Date Folder exists&quot;]" />
+          <ui:DeleteFolderX DisplayName="Delete Folder || Todays Folder" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[io_TodaysDateFolder]" Recursive="True" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <ui:LogMessage DisplayName="Log Message || Create Todays Date Folder Log" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Info: Create Todays Date Folder&quot;]" />
+        <ui:LogMessage DisplayName="Log Message || Create Todays Date Folder Log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Info: Create Todays Date Folder&quot;]" />
       </If.Else>
     </If>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Todays Date Folder" sap:VirtualizedContainerService.HintSize="477.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[io_TodaysDateFolder]" />
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Output Folder" Exists="[IsOutputFolderExists]" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[io_TodaysDateFolder+&quot;\&quot;+in_Config(&quot;OutputFolder&quot;).ToString.Trim]" PathType="Folder" />
-    <If Condition="[IsOutputFolderExists]" DisplayName="If || Check if Output Folder Exists or Not" sap:VirtualizedContainerService.HintSize="477.6,576" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Todays Date Folder" sap:VirtualizedContainerService.HintSize="798,80.66666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[io_TodaysDateFolder]" />
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Output Folder" Exists="[IsOutputFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[io_TodaysDateFolder+&quot;\&quot;+in_Config(&quot;OutputFolder&quot;).ToString.Trim]" PathType="Folder" />
+    <If Condition="[IsOutputFolderExists]" DisplayName="If || Check if Output Folder Exists or Not" sap:VirtualizedContainerService.HintSize="798,350.6666666666667" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -275,26 +275,84 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Sequence || Output Folder Present Sequence" sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+        <Sequence DisplayName="Sequence || Output Folder Present Sequence" sap:VirtualizedContainerService.HintSize="376,186.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_14">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message || Output Folder Exists log" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Info: Output folder Exists already&quot;]" />
+          <ui:LogMessage DisplayName="Log Message || Output Folder Exists log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Info: Output folder Exists already&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Sequence || Output Folder Create Sequence" sap:VirtualizedContainerService.HintSize="400,192.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Sequence || Output Folder Create Sequence" sap:VirtualizedContainerService.HintSize="376,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Output Folder" sap:VirtualizedContainerService.HintSize="337.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[io_TodaysDateFolder+&quot;\&quot;+in_Config(&quot;OutputFolder&quot;).ToString.Trim]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder || Output Folder" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[io_TodaysDateFolder+&quot;\&quot;+in_Config(&quot;OutputFolder&quot;).ToString.Trim]" />
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message || Create Folder Workflow Complete log" sap:VirtualizedContainerService.HintSize="477.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Completed: &quot;+&quot;Create Folder Workflow&quot;]" />
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Abbyy OLd File" Exists="[IsOutputFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_6" Path="[String.Join(&quot;\&quot;,in_Config(&quot;OutputHotFolderPath&quot;).ToString.Trim,in_Config(&quot;AbbyOutputFileName&quot;).ToString.Trim+&quot;.xlsx&quot;)]" PathType="File" />
+    <If Condition="[IsOutputFolderExists]" DisplayName="If || Check if AbbyyOutput File Exists or Not" sap:VirtualizedContainerService.HintSize="798,52.666666666666664" sap2010:WorkflowViewState.IdRef="If_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Sequence || Output Abbyy  file Present Sequence" sap:VirtualizedContainerService.HintSize="376,307.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Output Abbyy File Exists log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Deleting older abbyy files&quot;]" />
+          <ui:DeleteFileX DisplayName="Delete Older Abbyy File" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[String.Join(&quot;\&quot;,in_Config(&quot;OutputHotFolderPath&quot;).ToString.Trim,in_Config(&quot;AbbyOutputFileName&quot;).ToString.Trim+&quot;.xlsx&quot;)]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || Output Folder Create Sequence" sap:VirtualizedContainerService.HintSize="200,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists || Abbyy OLd Permit File" Exists="[IsOutputFolderExists]" sap:VirtualizedContainerService.HintSize="798,90.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_7" Path="[String.Join(&quot;\&quot;,in_Config(&quot;OutputHotFolderPath&quot;).ToString.Trim,in_Config(&quot;AbbyOutputPermitNoFile&quot;).ToString.Trim+&quot;.xlsx&quot;)]" PathType="File" />
+    <If Condition="[IsOutputFolderExists]" DisplayName="If || Check if AbbyyOutput Permit File Exists or Not" sap:VirtualizedContainerService.HintSize="798,502" sap2010:WorkflowViewState.IdRef="If_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Sequence || Output Abby Permit  file Present Sequence" sap:VirtualizedContainerService.HintSize="376,307.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message || Output Abbyy Permit File Exists log" sap:VirtualizedContainerService.HintSize="334,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Deleting older Permit abbyy files&quot;]" />
+          <ui:DeleteFileX DisplayName="Delete Older Abbyy Permit no File" sap:VirtualizedContainerService.HintSize="334,80.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[String.Join(&quot;\&quot;,in_Config(&quot;OutputHotFolderPath&quot;).ToString.Trim,in_Config(&quot;AbbyOutputPermitNoFile&quot;).ToString.Trim+&quot;.xlsx&quot;)]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sequence || Output Folder Create Sequence" sap:VirtualizedContainerService.HintSize="200,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message || Create Folder Workflow Complete log" sap:VirtualizedContainerService.HintSize="798,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Completed: &quot;+&quot;Create Folder Workflow&quot;]" />
   </Sequence>
 </Activity>
